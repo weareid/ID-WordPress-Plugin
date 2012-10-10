@@ -21,6 +21,7 @@ add_action('init', 'admin_bar_remove', 0);
 if ($_SERVER['SERVER_ADDR'] == '10.0.0.4') {
     add_action('wp_head', 'debug_mode_on');
 
+
     function debug_mode_on() {
     define('WP_DEBUG', true);
     $hostname = gethostbyaddr($_SERVER['SERVER_ADDR']);
