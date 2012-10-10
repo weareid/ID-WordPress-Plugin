@@ -8,6 +8,8 @@ Author: Louis Northmore
 Author URI: http://www.interactivedimension.com
 */
 
+/* Crazy lazy stuff in here. Use at your own risk! */
+
 //remove WP admin bar
 function admin_bar_remove() {
     add_filter('show_admin_bar', '__return_false');
