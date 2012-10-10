@@ -38,8 +38,6 @@ function hide_post_preview() {
 }
 </style>
 
-
-
 END;
 }
 add_action('admin_head', 'hide_post_preview');
