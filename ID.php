@@ -16,7 +16,6 @@ function admin_bar_remove() {
 show_admin_bar(false);
 
 }
-
 add_action('init', 'admin_bar_remove', 0);
 
 //enable debug on ID LAN.
@@ -61,3 +60,7 @@ function header_info_div() {
     return $output;
 }
 
+//enable update probing
+function id_update_probing() {
+    //
+}
