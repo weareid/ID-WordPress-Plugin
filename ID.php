@@ -18,7 +18,7 @@ show_admin_bar(false);
 }
 add_action('init', 'admin_bar_remove', 0);
 
-//enable debug on ID LAN.
+//enable debug on ID LAN. Careful!
 if ($_SERVER['SERVER_ADDR'] == '10.0.0.4') {
     add_action('wp_head', 'debug_mode_on');
 
