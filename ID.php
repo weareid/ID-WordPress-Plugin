@@ -4,11 +4,13 @@ Plugin Name: ID Plugin
 Plugin URI: http://www.interactivedimension.com
 Description: What we deem to be essential stuff for our WordPress sites!
 Version: 1.0
-Author: Louis Northmore
+Author: Interactive Dimension
 Author URI: http://www.interactivedimension.com
 */
 
 /* Crazy lazy stuff in here. Use at your own risk! */
+
+DEFINE('load_bootstrap', true);
 
 //remove WP admin bar
 function admin_bar_remove() {
@@ -24,6 +26,7 @@ if (
     $_SERVER['SERVER_ADDR'] == '192.168.0.3' ||
     $_SERVER['SERVER_ADDR'] == '192.168.0.5'
     ) {
+    define('id_local_mode', true);
     add_action('wp_head', 'debug_mode_on');
 
 
@@ -64,7 +67,35 @@ function header_info_div() {
     return $output;
 }
 
-//enable update probing
-function id_update_probing() {
-    //
+function load_bootstrap_js() {
+
+echo '<!-- Loading Twitter Bootstrap JS -->';
+echo "<script type='text/javascript' src='".plugin_dir_url(__FILE__)."bootstrap-3.1.1-dist/js/bootstrap.min.js'></script>";
+
 }
+
+function load_bootstrap_css() {
+    $theme  = get_theme( get_current_theme() );
+    //echo '<!-- Loading Twitter Bootstrap CSS -->';
+    //echo "<link rel='stylesheet' href=\"".plugin_dir_url(__FILE__)."bootstrap-3.1.1-dist/css/bootstrap.min.css\">";
+    wp_register_style( 'bootstrap-css', plugin_dir_url(__FILE__).'bootstrap-3.1.1-dist/css/bootstrap.min.css', false, $theme['Version'] );
+    //wp_enqueue_style( 'bootstrap-css' );
+}
+
+
+if(load_bootstrap == true) {
+add_action('wp_enqueue_scripts', 'load_bootstrap_css', 9, 2);
+add_action('wp_footer', 'load_bootstrap_js', 99, 2);
+}
+
+// changing the login page URL
+function put_my_url(){
+    return ('http://www.interactivedimension.com/'); // putting my URL in place of the WordPress one
+}
+add_filter('login_headerurl', 'put_my_url');
+
+// changing the login page URL hover text
+function put_my_title(){
+    return ('Powered by Interactive Dimension'); // changing the title from "Powered by WordPress" to whatever you wish
+}
+add_filter('login_headertitle', 'put_my_title');
