@@ -10,6 +10,12 @@ Author URI: http://www.interactivedimension.com
 
 /* Crazy lazy stuff in here. Use at your own risk! */
 
+//this plugin can update from GitHub!
+require_once( 'github_updater/BFIGitHubPluginUploader.php' );
+if ( is_admin() ) {
+    new BFIGitHubPluginUpdater( __FILE__, 'weareid', "ID-WordPress-Plugin" );
+}
+
 DEFINE('load_bootstrap', true);
 
 //remove WP admin bar
