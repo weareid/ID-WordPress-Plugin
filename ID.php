@@ -3,7 +3,7 @@
 Plugin Name: ID Plugin
 Plugin URI: http://www.interactivedimension.com
 Description: What we deem to be essential stuff for our WordPress sites!
-Version: 1.0.2
+Version: 1.0.3
 Author: Interactive Dimension
 Author URI: http://www.interactivedimension.com
 */
