@@ -21,8 +21,7 @@ DEFINE('load_bootstrap', true);
 //remove WP admin bar
 function admin_bar_remove() {
     add_filter('show_admin_bar', '__return_false');
-show_admin_bar(false);
-
+    show_admin_bar(false);
 }
 add_action('init', 'admin_bar_remove', 0);
 
@@ -34,7 +33,6 @@ if (
     ) {
     define('id_local_mode', true);
     add_action('wp_head', 'debug_mode_on');
-
 
     function debug_mode_on() {
     define('WP_DEBUG', true);
@@ -105,3 +103,19 @@ function put_my_title(){
     return ('Powered by Interactive Dimension'); // changing the title from "Powered by WordPress" to whatever you wish
 }
 add_filter('login_headertitle', 'put_my_title');
+
+function id_get_wp_info() {
+
+    if($_GET['wp_version']) {
+    $version = get_bloginfo('version');
+
+    $data = array(
+        'version' => $version
+    );
+
+    echo json_encode($data);
+
+    die();
+    }
+}
+add_action('init','id_get_wp_info');
