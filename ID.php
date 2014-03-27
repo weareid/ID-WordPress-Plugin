@@ -106,7 +106,7 @@ add_filter('login_headertitle', 'put_my_title');
 
 function id_get_wp_info() {
 
-    if($_GET['wp_version']) {
+    if($_GET['wp_info']) {
     $version = get_bloginfo('version');
 
     $data = array(
