@@ -119,3 +119,9 @@ function id_get_wp_info() {
     }
 }
 add_action('init','id_get_wp_info');
+
+//allow editors access to appearance menu 1.0.5
+$roleObject = get_role( 'editor' );
+if (!$roleObject->has_cap( 'edit_theme_options' ) ) {
+    $roleObject->add_cap( 'edit_theme_options' );
+}
