@@ -93,16 +93,16 @@ add_action('wp_footer', 'load_bootstrap_js', 99, 2);
 }
 
 // changing the login page URL
-function put_my_url(){
+function id_put_my_url(){
     return ('http://www.interactivedimension.com/'); // putting my URL in place of the WordPress one
 }
-add_filter('login_headerurl', 'put_my_url');
+add_filter('login_headerurl', 'id_put_my_url');
 
 // changing the login page URL hover text
-function put_my_title(){
+function id_put_my_title(){
     return ('Powered by Interactive Dimension'); // changing the title from "Powered by WordPress" to whatever you wish
 }
-add_filter('login_headertitle', 'put_my_title');
+add_filter('login_headertitle', 'id_put_my_title');
 
 function id_get_wp_info() {
 
