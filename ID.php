@@ -125,3 +125,5 @@ $roleObject = get_role( 'editor' );
 if (!$roleObject->has_cap( 'edit_theme_options' ) ) {
     $roleObject->add_cap( 'edit_theme_options' );
 }
+
+// test comment from Mark
